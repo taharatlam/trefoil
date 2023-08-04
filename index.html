@@ -166,6 +166,35 @@
                             </div>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="home-banner">
+                            <img src="assets/images/banner-t-mark.svg" alt="">
+                            <picture>
+                                <source srcset="" media="(max-width:660px)" />
+                                <img src="assets/images/header-bg.jpg" alt="">
+                            </picture>
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-8 col-12">
+                                        <div class="banner-content">
+                                            <h1>
+                                                <span>Innovating Packaging with </span>Smarter Foil Packaging Solutions
+                                            </h1>
+                                            <p class="para">
+                                                Expanding the horizon of pharmaceutical packaging with our technically advanced aluminium foils.
+                                            </p>
+                                            <a href="" class="main-btn">
+                                                <span>Explore Our Cutting-Edge Products</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="swiper-pagination head-banner-pagination"></div>
                 </div>
             </div>
              
@@ -647,10 +676,23 @@
             'resizeDuration': 200,
             'wrapAround': true
         })
+        var sliderDelay = 5000;
+        var menu = ["Innovating Packaging with Smarter Foil Packaging Solutions", "Innovating Packaging with Smarter Foil Packaging Solutions", "Innovating Packaging with Smarter Foil Packaging Solutions"];
 
         var swiper = new Swiper(".home-swiper", {
             pagination: {
-                el: ".swiper-pagination",
+                el: ".head-banner-pagination",
+                renderBullet: function(index, className) {
+                    var num = index + 1;
+                    return '<span class="' + className + ' banner-pagi-wrap" style="--anim: progress ' +
+                    sliderDelay / 1000 + 's linear forwards"><span>'+ num +'</span><p>' + (menu[index]) + '</p></span>';
+                },
+                clickable: true,
+            },
+            effect: 'fade',
+            fadeEffect: { crossFade: false },
+            autoplay:{
+                delay: sliderDelay
             },
             breakpoints: {
                 0: {
